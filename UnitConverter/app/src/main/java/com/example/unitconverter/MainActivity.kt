@@ -62,14 +62,14 @@ fun UnitConverter(){
         //Here all the UI elements will be stacked below each other
         Spacer(modifier = Modifier.height(16.dp))
         Row {
-            /*val context = LocalContext.current
+            val context = LocalContext.current
             Button(onClick = { Toast.makeText(context,
                 "Thanks for clicking!",
                 Toast.LENGTH_LONG).show() }
             )
             {
                 Text(text = "Click me!")
-            }*/
+            }
 
             Box{
                 Button(onClick = { /*TODO*/ }) {
@@ -77,7 +77,7 @@ fun UnitConverter(){
                     Icon(Icons.Default.ArrowDropDown,
                         contentDescription = "This is a dropdown consisting of items.")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters")},
                         onClick = { /*TODO*/ }
@@ -102,7 +102,7 @@ fun UnitConverter(){
                     Icon(Icons.Default.ArrowDropDown,
                         contentDescription = "This is a dropdown consisting of items.")
                 }
-                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
                     DropdownMenuItem(
                         text = { Text(text = "Centimeters") },
                         onClick = { /*TODO*/ }
