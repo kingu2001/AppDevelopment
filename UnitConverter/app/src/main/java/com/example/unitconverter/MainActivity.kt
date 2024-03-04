@@ -24,6 +24,10 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -51,6 +55,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun UnitConverter(){
+    var inputValue by remember { mutableStateOf("")}
+    var outputValue by remember { mutableStateOf("")}
+    var inputUnit by remember { mutableStateOf("Centimeters")}
+    var outputUnit by remember { mutableStateOf("Meters")}
+    var iExpanded by remember { mutableStateOf(false)}
+    var oExpanded by remember { mutableStateOf(false)}
+    val conversionFactor by remember { mutableStateOf("0.01")}
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -58,18 +70,20 @@ fun UnitConverter(){
     ) {
         Text("Unit Converter", modifier = Modifier.padding(100.dp))
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(value = "", onValueChange = {})
+        OutlinedTextField(value = inputValue,
+            onValueChange = {inputValue = it},
+            label = {Text("Enter value")})
         //Here all the UI elements will be stacked below each other
         Spacer(modifier = Modifier.height(16.dp))
         Row {
-            val context = LocalContext.current
+            /*val context = LocalContext.current
             Button(onClick = { Toast.makeText(context,
                 "Thanks for clicking!",
                 Toast.LENGTH_LONG).show() }
             )
             {
                 Text(text = "Click me!")
-            }
+            }*/
 
             Box{
                 Button(onClick = { /*TODO*/ }) {
