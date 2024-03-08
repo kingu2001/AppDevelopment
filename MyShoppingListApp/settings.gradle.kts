@@ -15,8 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyShoppingListApp"
 include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")

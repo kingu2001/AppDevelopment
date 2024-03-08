@@ -13,10 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyShoppingListApp"
+rootProject.name = "CounterApp"
 include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
+ 
