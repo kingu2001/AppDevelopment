@@ -13,12 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MyShoppingListApp"
+rootProject.name = "TodoApp"
 include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
-include(":app")
- 
