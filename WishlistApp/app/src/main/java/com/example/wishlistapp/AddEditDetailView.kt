@@ -42,17 +42,17 @@ fun AddEditDetailView(
     viewModel: WishViewModel,
     navController: NavController
 ) {
-    val snackMessage = remember{
+    val snackMessage = remember {
         mutableStateOf("")
     }
 
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberScaffoldState()
-    if(id != 0L){
+    if (id != 0L) {
         val wish = viewModel.getAWishById(id).collectAsState(initial = Wish(0L, "", ""))
         viewModel.wishTitleState = wish.value.title
         viewModel.wishDescriptionState = wish.value.description
-    }else{
+    } else {
         viewModel.wishTitleState = ""
         viewModel.wishDescriptionState = ""
     }
@@ -64,7 +64,7 @@ fun AddEditDetailView(
                 if (id != 0L) stringResource(id = R.string.update_wish)
                 else stringResource(id = R.string.add_wish)
             )
-            {navController.navigateUp()}
+            { navController.navigateUp() }
         },
         scaffoldState = scaffoldState
     ) {
@@ -78,16 +78,16 @@ fun AddEditDetailView(
             Spacer(modifier = Modifier.height(10.dp))
             WishTextField(label = "Title",
                 value = viewModel.wishTitleState,
-                onValueChanged = {viewModel.onWishTitleChanged(it)})
-            
+                onValueChanged = { viewModel.onWishTitleChanged(it) })
+
             WishTextField(label = "Description",
                 value = viewModel.wishDescriptionState,
-                onValueChanged = {viewModel.onWishDescriptionChanged(it)}
+                onValueChanged = { viewModel.onWishDescriptionChanged(it) }
             )
             Spacer(modifier = Modifier.height(10.dp))
             Button(onClick = {
-                if(viewModel.wishTitleState.isNotEmpty() && viewModel.wishDescriptionState.isNotEmpty()){
-                    if(id != 0L){
+                if (viewModel.wishTitleState.isNotEmpty() && viewModel.wishDescriptionState.isNotEmpty()) {
+                    if (id != 0L) {
                         viewModel.updateWish(
                             Wish(
                                 id = id,
@@ -95,8 +95,7 @@ fun AddEditDetailView(
                                 description = viewModel.wishDescriptionState.trim()
                             )
                         )
-                    }
-                    else{
+                    } else {
                         viewModel.addWIsh(
                             Wish(
                                 title = viewModel.wishTitleState.trim(),
@@ -105,8 +104,7 @@ fun AddEditDetailView(
                         )
                         snackMessage.value = "Wish has been created!"
                     }
-                }
-                else{
+                } else {
                     snackMessage.value = "Enter fields to create a wish"
                 }
                 scope.launch {
@@ -115,7 +113,7 @@ fun AddEditDetailView(
                 }
             }) {
                 Text(
-                    text = if(id != 0L) stringResource(id = R.string.update_wish)
+                    text = if (id != 0L) stringResource(id = R.string.update_wish)
                     else stringResource(id = R.string.add_wish),
                     style = TextStyle(fontSize = 18.sp)
                 )
@@ -148,6 +146,6 @@ fun WishTextField(
 
 @Preview
 @Composable
-fun WishTestFieldPrev(){
+fun WishTestFieldPrev() {
     WishTextField(label = "text", value = "text", onValueChanged = {})
 }
