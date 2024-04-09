@@ -18,7 +18,6 @@ import com.example.tedo.viewModel.UserVM
 
 @Composable
 fun LoginView(
-    userVM: UserVM,
     navController: NavController){
     Box(modifier = Modifier
         .fillMaxSize()
